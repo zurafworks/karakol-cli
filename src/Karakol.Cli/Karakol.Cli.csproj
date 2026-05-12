@@ -42,8 +42,8 @@
     <Product>Karakol</Product>
     <Description>Local-first cybersecurity log analysis CLI for detecting suspicious activity and generating JSON, Markdown, and offline HTML reports.</Description>
     <PackageTags>security;logs;cli;local-first;detection</PackageTags>
-    <PackageProjectUrl>https://github.com/karakol-security/karakol</PackageProjectUrl>
-    <RepositoryUrl>https://github.com/karakol-security/karakol.git</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/zurafworks/karakol-cli</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/zurafworks/karakol-cli.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageReadmeFile>README.md</PackageReadmeFile>

@@ -86,7 +86,7 @@ Key documents:
 - Code of conduct: see [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
 - Security policy: see [SECURITY.md](SECURITY.md)
 
-The package metadata currently points to `karakol-security/karakol`. Update the repository owner before publishing if the final GitHub organization or user differs.
+The package metadata points to the public GitHub repository under `zurafworks/karakol-cli`.
 
 ## Local-First Guarantee
 
