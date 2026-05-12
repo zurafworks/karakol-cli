@@ -1,0 +1,28 @@
+{
+  "Scanning": {
+    "MaxLines": null,
+    "StreamingBatchSize": 1000,
+    "AutoDetectFormat": true,
+    "MaskSensitiveData": true,
+    "IncludeRawSamples": false
+  },
+  "Rules": {
+    "Enabled": true
+  },
+  "ML": {
+    "Enabled": false,
+    "ModelPath": "./models/karakol-threat-classifier.onnx",
+    "MinimumConfidence": 0.7
+  },
+  "Reporting": {
+    "DefaultOutputDirectory": "./reports",
+    "DefaultFormats": ["json", "html"],
+    "IncludeEvidence": true,
+    "IncludeRawSamples": false
+  },
+  "Persistence": {
+    "Enabled": true,
+    "Provider": "DuckDB",
+    "ConnectionString": "./reports/karakol-history.duckdb"
+  }
+}

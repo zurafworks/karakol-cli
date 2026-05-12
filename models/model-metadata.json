@@ -1,0 +1,6 @@
+{
+  "modelName": "karakol-threat-classifier",
+  "modelVersion": "0.0.0",
+  "status": "placeholder",
+  "notes": "MVP uses DummyThreatClassifier. ONNX model integration is prepared as a future extension."
+}

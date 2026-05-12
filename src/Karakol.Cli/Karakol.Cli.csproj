@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Karakol.Application\Karakol.Application.csproj" />
+    <ProjectReference Include="..\Karakol.Contracts\Karakol.Contracts.csproj" />
+    <ProjectReference Include="..\Karakol.Infrastructure\Karakol.Infrastructure.csproj" />
+    <ProjectReference Include="..\Karakol.Parsing\Karakol.Parsing.csproj" />
+    <ProjectReference Include="..\Karakol.Detection\Karakol.Detection.csproj" />
+    <ProjectReference Include="..\Karakol.Correlation\Karakol.Correlation.csproj" />
+    <ProjectReference Include="..\Karakol.Risk\Karakol.Risk.csproj" />
+    <ProjectReference Include="..\Karakol.Reporting\Karakol.Reporting.csproj" />
+    <ProjectReference Include="..\Karakol.ML\Karakol.ML.csproj" />
+    <ProjectReference Include="..\Karakol.Persistence\Karakol.Persistence.csproj" />
+    <ProjectReference Include="..\Karakol.Persistence.DuckDb\Karakol.Persistence.DuckDb.csproj" />
+    <ProjectReference Include="..\Karakol.Plugins.Abstractions\Karakol.Plugins.Abstractions.csproj" />
+    <ProjectReference Include="..\Karakol.Plugins.BuiltIn\Karakol.Plugins.BuiltIn.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="Serilog" />
+    <PackageReference Include="Serilog.Extensions.Logging" />
+    <PackageReference Include="Serilog.Sinks.Console" />
+    <PackageReference Include="Serilog.Sinks.File" />
+    <PackageReference Include="Spectre.Console.Cli" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <PackAsTool>true</PackAsTool>
+    <ToolCommandName>karakol</ToolCommandName>
+    <PackageId>Karakol.Cli</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Karakol</Authors>
+    <Company>Karakol</Company>
+    <Product>Karakol</Product>
+    <Description>Local-first cybersecurity log analysis CLI for detecting suspicious activity and generating JSON, Markdown, and offline HTML reports.</Description>
+    <PackageTags>security;logs;cli;local-first;detection</PackageTags>
+    <PackageProjectUrl>https://github.com/karakol-security/karakol</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/karakol-security/karakol.git</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md" Pack="true" PackagePath="\" />
+    <Content Include="..\..\karakol_logo.png" Link="karakol_logo.png" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
+</Project>

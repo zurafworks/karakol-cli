@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Karakol.Plugins.Abstractions\Karakol.Plugins.Abstractions.csproj" />
+    <ProjectReference Include="..\Karakol.Parsing\Karakol.Parsing.csproj" />
+    <ProjectReference Include="..\Karakol.Detection\Karakol.Detection.csproj" />
+    <ProjectReference Include="..\Karakol.Reporting\Karakol.Reporting.csproj" />
+    <ProjectReference Include="..\Karakol.ML\Karakol.ML.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

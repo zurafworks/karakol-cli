@@ -1,0 +1,28 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\Karakol.Domain\Karakol.Domain.csproj" />
+    <ProjectReference Include="..\Karakol.Contracts\Karakol.Contracts.csproj" />
+    <ProjectReference Include="..\Karakol.Parsing\Karakol.Parsing.csproj" />
+    <ProjectReference Include="..\Karakol.Detection\Karakol.Detection.csproj" />
+    <ProjectReference Include="..\Karakol.Correlation\Karakol.Correlation.csproj" />
+    <ProjectReference Include="..\Karakol.Risk\Karakol.Risk.csproj" />
+    <ProjectReference Include="..\Karakol.Reporting\Karakol.Reporting.csproj" />
+    <ProjectReference Include="..\Karakol.ML\Karakol.ML.csproj" />
+    <ProjectReference Include="..\Karakol.Persistence\Karakol.Persistence.csproj" />
+    <ProjectReference Include="..\Karakol.Shared\Karakol.Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" />
+    <PackageReference Include="MediatR" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

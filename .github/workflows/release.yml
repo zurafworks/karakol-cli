@@ -1,0 +1,53 @@
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: "Release version without leading v, for example 0.1.0"
+        required: true
+        type: string
+      publish_nuget:
+        description: "Publish package to NuGet"
+        required: true
+        default: false
+        type: boolean
+
+jobs:
+  release-candidate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Test
+        run: dotnet test --no-restore
+
+      - name: Pack CLI
+        run: dotnet pack --no-restore src/Karakol.Cli/Karakol.Cli.csproj -o artifacts/packages /p:Version=${{ inputs.version }}
+
+      - name: Sample scan
+        run: dotnet run --no-restore --project src/Karakol.Cli -- scan samples/nginx/nginx-access.log --format nginx --report html --report json --verbose
+
+      - name: Upload release candidate package
+        uses: actions/upload-artifact@v4
+        with:
+          name: karakol-release-candidate-${{ inputs.version }}
+          path: artifacts/packages/*.nupkg
+          if-no-files-found: error
+
+      - name: Publish to NuGet
+        if: ${{ inputs.publish_nuget }}
+        run: dotnet nuget push "artifacts/packages/*.nupkg" --api-key "${{ secrets.NUGET_API_KEY }}" --source https://api.nuget.org/v3/index.json --skip-duplicate

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://karakol.local/schemas/karakolsettings.schema.json",
+  "title": "Karakol Settings",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "scanning": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "maxLines": { "type": ["integer", "null"], "minimum": 1 },
+        "streamingBatchSize": { "type": "integer", "minimum": 1 },
+        "autoDetectFormat": { "type": "boolean" },
+        "maskSensitiveData": { "type": "boolean" },
+        "includeRawSamples": { "type": "boolean" }
+      }
+    },
+    "rules": {
+      "type": "object",
+      "additionalProperties": true,
+      "properties": {
+        "enabled": { "type": "boolean" }
+      }
+    },
+    "ml": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "modelPath": { "type": "string", "minLength": 1 },
+        "minimumConfidence": { "type": "number", "minimum": 0, "maximum": 1 }
+      }
+    },
+    "reporting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "defaultOutputDirectory": { "type": "string", "minLength": 1 },
+        "defaultFormats": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": { "enum": ["json", "html", "markdown"] }
+        },
+        "includeEvidence": { "type": "boolean" },
+        "includeRawSamples": { "type": "boolean" }
+      }
+    },
+    "persistence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "enabled": { "type": "boolean" },
+        "provider": { "enum": ["None", "DuckDB", "SQLite"] },
+        "connectionString": { "type": "string" }
+      }
+    }
+  }
+}

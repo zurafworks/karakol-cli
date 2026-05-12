@@ -1,0 +1,55 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-test-pack:
+    name: build-test-pack (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 9.0.x
+
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --no-restore
+
+      - name: Test
+        run: dotnet test --no-restore
+
+      - name: Pack CLI
+        run: dotnet pack --no-restore src/Karakol.Cli/Karakol.Cli.csproj -o artifacts/packages
+
+      - name: Sample scan
+        run: dotnet run --no-restore --project src/Karakol.Cli -- scan samples/nginx/nginx-access.log --format nginx --report html --report json --verbose
+
+      - name: Upload packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: karakol-packages-${{ matrix.os }}
+          path: artifacts/packages/*.nupkg
+          if-no-files-found: error
+
+      - name: Upload sample reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: karakol-sample-reports-${{ matrix.os }}
+          path: reports/*
+          if-no-files-found: error

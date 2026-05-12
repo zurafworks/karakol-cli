@@ -1,0 +1,26 @@
+name: Feature request
+description: Propose a focused improvement.
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What user problem does this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: Describe the proposed behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: local-first
+    attributes:
+      label: Local-first impact
+      description: Explain whether the feature introduces network, telemetry, or external dependencies.
+    validations:
+      required: true

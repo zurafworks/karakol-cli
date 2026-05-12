@@ -1,0 +1,3 @@
+Jan 12 10:15:32 server sshd[12345]: Failed password for invalid user admin from 2001:db8::30 port 54321 ssh2
+Jan 12 10:15:40 server sshd[12347]: Accepted password for deploy from 10.0.0.5 port 55555 ssh2
+Jan 12 10:16:00 server sudo: pam_unix(sudo:session): session opened for user root by deploy(uid=0)

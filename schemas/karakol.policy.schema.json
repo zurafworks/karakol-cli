@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://karakol.local/schemas/karakol.policy.schema.json",
+  "title": "Karakol Policy",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "minimumSeverity": {
+      "type": ["string", "null"],
+      "enum": ["Info", "Low", "Medium", "High", "Critical", "info", "low", "medium", "high", "critical", null]
+    },
+    "enabledRules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "disabledRules": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "sensitivePaths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "trustedIps": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "ignoredPaths": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "type": "string", "minLength": 1 }
+    }
+  }
+}
